@@ -1,5 +1,27 @@
-<h2>Products</h2>
+<h2>Kisten</h2>
 
+<div *ngFor="let product of products">
+  <div>
+    <b>{{ product.name }}</b>
+  </div>
+  <div>
+    <!--<p *ngIf="product.description">{{ product.description }}</p>-->
+    <button type="button" (click)="subtract(product)">-</button>
+    <input type="number" [attr.value]="product.count" />
+    <button type="button" (click)="add(product)">+</button>
+  </div>
+</div>
+
+<h2>Kisten-Gewichte</h2>
+<ul>
+  <li *ngFor="let product of products">
+    {{ product.count }} x {{ product.name }} je {{ product.weight }}g =
+    {{ product.weight * product.count }}g
+  </li>
+</ul>
+
+<h2>Ergebnis</h2>
+<div>{{ calc_weight_sum() }}g</div>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
