@@ -13,6 +13,13 @@ import { saveAs } from 'file-saver';
 })
 export class ProductListComponent {
   products = products;
+  measured_weight: Product = {
+    id: 0,
+    name: 'Gewicht',
+    description: 'gemessenes Gewicht',
+    count: 1,
+    weight: 0,
+  };
 
   share() {
     window.alert('The product has been shared!');
@@ -33,7 +40,7 @@ export class ProductListComponent {
     return result;
   }
 
-  measured_weight() {
+  get_measured_weight() {
     return 1000;
   }
 
@@ -43,7 +50,28 @@ export class ProductListComponent {
     }
   }
 
-  downloadFile(data: any) {
+  downloadFile() {
+    // build data
+    let data = this.products;
+    /*let w = {
+      id: 0,
+      name: 'Gewicht',
+      description: 'gemessenes Gewicht',
+      count: 1,
+      weight: this.get_measured_weight(),
+    };
+    data.push(w);
+
+    let r = {
+      id: 0,
+      name: 'Ergebnis',
+      description: 'Ergebnis',
+      count: 1,
+      weight: this.get_measured_weight() - this.calc_weight_sum(),
+    };
+    data.push(r);*/
+
+    // Build downloader
     const replacer = (_key: any, value: null) => (value === null ? '' : value); // specify how you want to handle null values here
     const header = Object.keys(data[0]);
     let csv = data.map((row: { [x: string]: any }) =>

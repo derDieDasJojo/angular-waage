@@ -5,7 +5,7 @@
     <div class="col-6">
       <b>gemessenes Gewicht </b>
     </div>
-    <div class="col-4 text-right">{{ measured_weight() }}g</div>
+    <div class="col-4 text-right">{{ get_measured_weight() }}g</div>
   </div>
   <div
     *ngFor="let product of products"
@@ -44,10 +44,10 @@
   <h2>Ergebnis</h2>
   <p>gemsesenes Gewicht - Summe der eingetragenen Kistengewichte</p>
   <div class="bg-secondary text-light rounded rounded-3 p-2 mb-1">
-    <!--{{ measured_weight() }}g - {{ calc_weight_sum() }}g = <br />-->
-    {{ measured_weight() - calc_weight_sum() }}g
+    <!--{{ get_measured_weight() }}g - {{ calc_weight_sum() }}g = <br />-->
+    {{ get_measured_weight() - calc_weight_sum() }}g
   </div>
-  <a class="btn btn-primary" (click)="downloadFile(products)">Download</a>
+  <a class="btn btn-primary" (click)="downloadFile()">Download</a>
 </div>
 
 <!-- 
