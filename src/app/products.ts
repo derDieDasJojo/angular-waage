@@ -1,7 +1,6 @@
 export interface Product {
   id: number;
   name: string;
-  price: number;
   description: string;
   count: number;
   weight: number;
@@ -11,26 +10,30 @@ export const products = [
   {
     id: 1,
     name: 'kleine Kiste',
-    price: 799,
-    description: 'A large phone with one of the best screens',
+    description: 'kleine weisse Kiste (150g)',
+    count: 0,
+    weight: 150,
+  },
+  {
+    id: 2,
+    name: 'kleine grüne Kiste',
+    description: 'kleine grüne Kiste (200g)',
     count: 0,
     weight: 200,
   },
   {
-    id: 2,
-    name: 'mittlere Kiste',
-    price: 699,
-    description: 'A great phone with one of the best cameras',
+    id: 3,
+    name: 'große grüne Kiste',
+    description: 'große grüne Kiste (300g)',
     count: 0,
-    weight: 250,
+    weight: 300,
   },
   {
     id: 3,
-    name: 'große Kiste',
-    price: 299,
-    description: '',
+    name: 'große Faltkiste',
+    description: 'große graue/grüne klappbare Kiste (350g)',
     count: 0,
-    weight: 300,
+    weight: 350,
   },
 ];
 

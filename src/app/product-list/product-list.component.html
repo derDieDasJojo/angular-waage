@@ -13,16 +13,13 @@
   >
     <div class="col-6">
       <b>{{ product.name }}</b>
+      <p>{{ product.description }}</p>
     </div>
     <div class="col-2">
       <button type="button" (click)="subtract(product)">-</button>
     </div>
-    <div class="col-2">
-      <input
-        type="number"
-        [attr.value]="product.count"
-        class="form-control input-sm"
-      />
+    <div class="col-3">
+      <input type="number" [attr.value]="product.count" class="form-control" />
     </div>
     <div class="col-1">
       <button type="button" (click)="add(product)">+</button>
@@ -45,9 +42,9 @@
 </div>
 <div>
   <h2>Ergebnis</h2>
-  <div>gemsesenes Gewicht - Summe( Kisten )</div>
+  <p>gemsesenes Gewicht - Summe der eingetragenen Kistengewichte</p>
   <div class="bg-secondary text-light rounded rounded-5 p-2">
-    {{ measured_weight() }}g - {{ calc_weight_sum() }}g = <br />
+    <!--{{ measured_weight() }}g - {{ calc_weight_sum() }}g = <br />-->
     {{ measured_weight() - calc_weight_sum() }}g
   </div>
 </div>
