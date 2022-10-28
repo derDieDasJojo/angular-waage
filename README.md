@@ -2,6 +2,8 @@
 
 Hier entsteht das Webinterface einer Gemüsekistenwaage für die solidarische Landwirtschaft
 
+![Preview](docs/gemuesekistenwaage.png 'Preview Gemüsekistenwaage')
+
 ## Motivation
 
 Es müssen große Mengen Gemüse in unterschiedlichen Kisten gewogen werden. Die Kisten haben alle unterschiedliche Gewichte. Das ausrechnen des Gewichts des Gemüses ist bisher mühsame Handarbeit.
