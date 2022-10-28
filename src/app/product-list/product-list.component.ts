@@ -30,6 +30,16 @@ export class ProductListComponent {
     }
     return result;
   }
+
+  measured_weight() {
+    return 1000;
+  }
+
+  reset_count() {
+    for (let index = 0; index < this.products.length; index++) {
+      this.products[index].count = 0;
+    }
+  }
 }
 
 /*
