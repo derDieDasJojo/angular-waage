@@ -47,6 +47,9 @@
     <!--{{ measured_weight() }}g - {{ calc_weight_sum() }}g = <br />-->
     {{ measured_weight() - calc_weight_sum() }}g
   </div>
+  <a class="button fancy-button" (click)="downloadFile(products)">
+    <i class="material-icons">done_outline</i>Download
+  </a>
 </div>
 
 <!-- 

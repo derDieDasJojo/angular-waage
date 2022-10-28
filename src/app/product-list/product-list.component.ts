@@ -4,6 +4,8 @@ import { products } from '../products';
 
 import { Product } from '../products';
 
+import { saveAs } from 'file-saver';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -39,6 +41,21 @@ export class ProductListComponent {
     for (let index = 0; index < this.products.length; index++) {
       this.products[index].count = 0;
     }
+  }
+
+  downloadFile(data: any) {
+    const replacer = (_key: any, value: null) => (value === null ? '' : value); // specify how you want to handle null values here
+    const header = Object.keys(data[0]);
+    let csv = data.map((row: { [x: string]: any }) =>
+      header
+        .map((fieldName) => JSON.stringify(row[fieldName], replacer))
+        .join(',')
+    );
+    csv.unshift(header.join(','));
+    let csvArray = csv.join('\r\n');
+
+    var blob = new Blob([csvArray], { type: 'text/csv' });
+    saveAs(blob, 'myFile.csv');
   }
 }
 
