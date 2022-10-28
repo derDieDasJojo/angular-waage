@@ -1,7 +1,7 @@
 <h2>Kisten</h2>
 
 <div class="container-md">
-  <div class="row bg-light border border-secondary rounded rounded-5 p-2 mb-1">
+  <div class="row bg-light border border-secondary rounded rounded-3 p-2 mb-1">
     <div class="col-6">
       <b>gemessenes Gewicht </b>
     </div>
@@ -9,7 +9,7 @@
   </div>
   <div
     *ngFor="let product of products"
-    class="row bg-light rounded rounded-5 p-2 mb-1"
+    class="row bg-light rounded rounded-3 p-2 mb-1"
   >
     <div class="col-6">
       <b>{{ product.name }}</b>
@@ -21,7 +21,7 @@
     <div class="col-3">
       <input type="number" [attr.value]="product.count" class="form-control" />
     </div>
-    <div class="col-1">
+    <div class="col-1 pr-1">
       <button type="button" (click)="add(product)">+</button>
     </div>
   </div>
@@ -31,7 +31,7 @@
 </div>
 <div>
   <h2>Kisten-Gewichte</h2>
-  <div class="bg-light rounded rounded-5">
+  <div class="bg-light rounded rounded-3">
     <ul>
       <li *ngFor="let product of products">
         {{ product.count }} x {{ product.name }} je {{ product.weight }}g =
@@ -43,7 +43,7 @@
 <div>
   <h2>Ergebnis</h2>
   <p>gemsesenes Gewicht - Summe der eingetragenen Kistengewichte</p>
-  <div class="bg-secondary text-light rounded rounded-5 p-2">
+  <div class="bg-secondary text-light rounded rounded-3 p-2">
     <!--{{ measured_weight() }}g - {{ calc_weight_sum() }}g = <br />-->
     {{ measured_weight() - calc_weight_sum() }}g
   </div>
