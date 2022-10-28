@@ -55,7 +55,7 @@ export class ProductListComponent {
     let csvArray = csv.join('\r\n');
 
     var blob = new Blob([csvArray], { type: 'text/csv' });
-    saveAs(blob, 'myFile.csv');
+    saveAs(blob, 'Gemuesegewichte.csv');
   }
 }
 

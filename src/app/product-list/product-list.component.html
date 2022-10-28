@@ -43,13 +43,11 @@
 <div>
   <h2>Ergebnis</h2>
   <p>gemsesenes Gewicht - Summe der eingetragenen Kistengewichte</p>
-  <div class="bg-secondary text-light rounded rounded-3 p-2">
+  <div class="bg-secondary text-light rounded rounded-3 p-2 mb-1">
     <!--{{ measured_weight() }}g - {{ calc_weight_sum() }}g = <br />-->
     {{ measured_weight() - calc_weight_sum() }}g
   </div>
-  <a class="button fancy-button" (click)="downloadFile(products)">
-    <i class="material-icons">done_outline</i>Download
-  </a>
+  <a class="btn btn-primary" (click)="downloadFile(products)">Download</a>
 </div>
 
 <!-- 
