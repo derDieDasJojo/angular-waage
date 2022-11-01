@@ -1,3 +1,15 @@
+<h2>Gemüse</h2>
+<div class="row">
+  <div class="col-sm-6" *ngFor="let product of products">
+    <div class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <h2>Kisten</h2>
 
 <div class="container-md">
@@ -8,21 +20,21 @@
     <div class="col-4 text-right">{{ get_measured_weight() }}g</div>
   </div>
   <div
-    *ngFor="let product of products"
+    *ngFor="let box of boxes"
     class="row bg-light rounded rounded-3 p-2 mb-1"
   >
     <div class="col-6">
-      <b>{{ product.name }}</b>
-      <p>{{ product.description }}</p>
+      <b>{{ box.name }}</b>
+      <p>{{ box.description }}</p>
     </div>
     <div class="col-2">
-      <button type="button" (click)="subtract(product)">-</button>
+      <button type="button" (click)="subtract(box)">-</button>
     </div>
     <div class="col-3">
-      <input type="number" [attr.value]="product.count" class="form-control" />
+      <input type="number" [attr.value]="box.count" class="form-control" />
     </div>
     <div class="col-1 pr-1">
-      <button type="button" (click)="add(product)">+</button>
+      <button type="button" (click)="add(box)">+</button>
     </div>
   </div>
   <div class="row">
@@ -33,9 +45,9 @@
   <h2>Kisten-Gewichte</h2>
   <div class="bg-light rounded rounded-3">
     <ul>
-      <li *ngFor="let product of products">
-        {{ product.count }} x {{ product.name }} je {{ product.weight }}g =
-        {{ product.weight * product.count }}g
+      <li *ngFor="let box of boxes">
+        {{ box.count }} x {{ box.name }} je {{ box.weight }}g =
+        {{ box.weight * box.count }}g
       </li>
     </ul>
   </div>

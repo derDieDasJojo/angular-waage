@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-
 import { products } from '../products';
-
 import { Product } from '../products';
-
+import { boxes } from '../boxes';
+import { Box } from '../boxes';
 import { saveAs } from 'file-saver';
 
 @Component({
@@ -13,7 +12,8 @@ import { saveAs } from 'file-saver';
 })
 export class ProductListComponent {
   products = products;
-  measured_weight: Product = {
+  boxes = boxes;
+  measured_weight: Box = {
     id: 0,
     name: 'Gewicht',
     description: 'gemessenes Gewicht',
@@ -22,20 +22,20 @@ export class ProductListComponent {
   };
 
   share() {
-    window.alert('The product has been shared!');
+    window.alert('The box has been shared!');
   }
 
-  subtract(product: Product) {
-    product.count -= 1;
+  subtract(box: Box) {
+    box.count -= 1;
   }
-  add(product: Product) {
-    product.count += 1;
+  add(box: Box) {
+    box.count += 1;
   }
 
   calc_weight_sum() {
     let result = 0;
-    for (let index = 0; index < this.products.length; index++) {
-      result += this.products[index].count * this.products[index].weight;
+    for (let index = 0; index < this.boxes.length; index++) {
+      result += this.boxes[index].count * this.boxes[index].weight;
     }
     return result;
   }
@@ -45,14 +45,14 @@ export class ProductListComponent {
   }
 
   reset_count() {
-    for (let index = 0; index < this.products.length; index++) {
-      this.products[index].count = 0;
+    for (let index = 0; index < this.boxes.length; index++) {
+      this.boxes[index].count = 0;
     }
   }
 
   downloadFile() {
     // build data
-    let data = this.products;
+    let data = this.boxes;
     /*let w = {
       id: 0,
       name: 'Gewicht',
