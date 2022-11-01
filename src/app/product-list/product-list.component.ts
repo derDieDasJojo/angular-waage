@@ -65,8 +65,9 @@ export class ProductListComponent {
   }
 
   saveSelection() {
+    // use clickedProductId -1 because products Ids start with 1, Array starts with 0
     let result: Result = {
-      name: this.products[this.clickedProudctId].name,
+      name: this.products[this.clickedProudctId - 1].name,
       description: '',
       weight: this.get_measured_weight() - this.calc_weight_sum(),
     };

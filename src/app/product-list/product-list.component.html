@@ -47,9 +47,9 @@
       <button type="button" (click)="add(box)">+</button>
     </div>
   </div>
-  <div class="row">
+  <!--<div class="row">
     <div class="col-12 text-right"><a (click)="reset_count()">reset</a></div>
-  </div>
+  </div>-->
 </div>
 <!--<div>
   <h2>Kisten-Gewichte</h2>
@@ -62,21 +62,33 @@
     </ul>
   </div>
 </div>-->
-<div>
+<div *ngIf="clickedProudctId > 0">
   <h2>Ergebnis</h2>
   <!--<p>gemsesenes Gewicht - Summe der eingetragenen Kistengewichte</p>-->
   <div class="bg-secondary text-light rounded rounded-3 p-2 mb-1">
-    {{ get_measured_weight() }}g Gesamtgewicht - {{ calc_weight_sum() }}g
-    Kisten= <br />
-    {{ get_measured_weight() - calc_weight_sum() }}g
+    {{ get_measured_weight() }}g Gesamtgewicht - {{ calc_weight_sum() }}g Kisten
+    = {{ get_measured_weight() - calc_weight_sum() }}g
+    {{ products[clickedProudctId - 1].name }} {{ clickedProudctId }}
   </div>
   <div class="text-center">
-    <a class="btn btn-primary me-1" (click)="saveSelection()">Weiter</a>
-    <a class="btn btn-primary" (click)="downloadFile()">Fertig</a>
+    <a class="btn btn-primary me-1 col-5" (click)="saveSelection()">Weiter</a>
+    <!--<a class="btn btn-primary col-5" (click)="downloadFile()">Fertig</a>-->
   </div>
 </div>
 
-{{ results }}
+<div class="container-md" *ngIf="results?.length">
+  <h2>Stapel</h2>
+  <div
+    *ngFor="let result of results"
+    class="row bg-light rounded rounded-3 p-2 mb-1"
+  >
+    {{ result.name }} - {{ result.weight }}g
+  </div>
+  <div *ngIf="!results?.length">leer</div>
+  <div class="text-center">
+    <a class="btn btn-primary col-5" (click)="downloadFile()">Fertig</a>
+  </div>
+</div>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
