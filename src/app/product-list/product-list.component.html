@@ -3,14 +3,11 @@
   <div class="col-sm-6" *ngFor="let product of products">
     <div
       class="card mb-2"
-      [ngClass]="{ highlight: checkIfCardIsClicked(product.id) }"
-      (click)="setcurrentlyClickedCardIndex(product.id)"
+      [ngClass]="{ highlight: isClicked(product.id) }"
+      (click)="setClicked(product.id)"
     >
       <div class="card-body">
-        <h5
-          class="card-title"
-          [ngClass]="{ highlight: checkIfCardIsClicked(product.id) }"
-        >
+        <h5 class="card-title" [ngClass]="{ highlight: isClicked(product.id) }">
           {{ product.name }}
         </h5>
         <p class="card-text">{{ product.description }}</p>
@@ -54,7 +51,7 @@
     <div class="col-12 text-right"><a (click)="reset_count()">reset</a></div>
   </div>
 </div>
-<div>
+<!--<div>
   <h2>Kisten-Gewichte</h2>
   <div class="bg-light rounded rounded-3">
     <ul>
@@ -64,14 +61,16 @@
       </li>
     </ul>
   </div>
-</div>
+</div>-->
 <div>
   <h2>Ergebnis</h2>
-  <p>gemsesenes Gewicht - Summe der eingetragenen Kistengewichte</p>
+  <!--<p>gemsesenes Gewicht - Summe der eingetragenen Kistengewichte</p>-->
   <div class="bg-secondary text-light rounded rounded-3 p-2 mb-1">
-    <!--{{ get_measured_weight() }}g - {{ calc_weight_sum() }}g = <br />-->
+    {{ get_measured_weight() }}g Gesamtgewicht - {{ calc_weight_sum() }}g
+    Kisten= <br />
     {{ get_measured_weight() - calc_weight_sum() }}g
   </div>
+  <a class="btn btn-primary me-1" (click)="saveSelection()">Weiter</a>
   <a class="btn btn-primary" (click)="downloadFile()">Download</a>
 </div>
 
