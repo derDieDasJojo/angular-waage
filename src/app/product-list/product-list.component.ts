@@ -13,6 +13,8 @@ import { saveAs } from 'file-saver';
 export class ProductListComponent {
   products = products;
   boxes = boxes;
+  public currentlyClickedCardIndex: number = 0;
+
   measured_weight: Box = {
     id: 0,
     name: 'Gewicht',
@@ -48,6 +50,15 @@ export class ProductListComponent {
     for (let index = 0; index < this.boxes.length; index++) {
       this.boxes[index].count = 0;
     }
+    this.currentlyClickedCardIndex = 0;
+  }
+
+  public setcurrentlyClickedCardIndex(cardIndex: number): void {
+    this.currentlyClickedCardIndex = cardIndex;
+  }
+
+  public checkIfCardIsClicked(cardIndex: number): boolean {
+    return cardIndex === this.currentlyClickedCardIndex;
   }
 
   downloadFile() {

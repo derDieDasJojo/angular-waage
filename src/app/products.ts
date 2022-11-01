@@ -29,7 +29,7 @@ export const products = [
     weight: 300,
   },
   {
-    id: 3,
+    id: 4,
     name: 'Kürbis',
     description: '',
     count: 0,
