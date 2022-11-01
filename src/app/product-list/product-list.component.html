@@ -70,9 +70,13 @@
     Kisten= <br />
     {{ get_measured_weight() - calc_weight_sum() }}g
   </div>
-  <a class="btn btn-primary me-1" (click)="saveSelection()">Weiter</a>
-  <a class="btn btn-primary" (click)="downloadFile()">Download</a>
+  <div class="text-center">
+    <a class="btn btn-primary me-1" (click)="saveSelection()">Weiter</a>
+    <a class="btn btn-primary" (click)="downloadFile()">Fertig</a>
+  </div>
 </div>
+
+{{ results }}
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

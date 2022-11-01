@@ -3,6 +3,8 @@ import { products } from '../products';
 import { Product } from '../products';
 import { boxes } from '../boxes';
 import { Box } from '../boxes';
+import { results } from '../results';
+import { Result } from '../results';
 import { saveAs } from 'file-saver';
 
 @Component({
@@ -13,6 +15,7 @@ import { saveAs } from 'file-saver';
 export class ProductListComponent {
   products = products;
   boxes = boxes;
+  results: Result[] = [];
   clickedProudctId: number = 0;
 
   measured_weight: Box = {
@@ -61,11 +64,21 @@ export class ProductListComponent {
     return id === this.clickedProudctId;
   }
 
-  saveSelection() {}
+  saveSelection() {
+    let result: Result = {
+      name: this.products[this.clickedProudctId].name,
+      description: '',
+      weight: this.get_measured_weight() - this.calc_weight_sum(),
+    };
+    this.results.push(result);
+    this.reset_count();
+  }
 
   downloadFile() {
     // build data
-    let data = this.boxes;
+    //let data = this.boxes;
+    let data = this.results;
+
     /*let w = {
       id: 0,
       name: 'Gewicht',
