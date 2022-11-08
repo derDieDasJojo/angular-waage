@@ -27,6 +27,12 @@ Die gemessenen Kisten können auf dem Webinterface (per Smartphone) ausgewählt 
 - Angular Webapp (dieses Repository)
 - Python-Skript zum auslesen des HX711 A/D-Wandlers und bereitstellen der Informationen per API
 
+
+## Todos
+
+[] Gemüsekisten und Gemüsesorten als .json-file zur verfügung stellen
+[] Dokumentation der Einrichtung der Gemüsekisten und Gemüsesorten
+[] Auslesen der HX711 und API-Schnittstelle
 ## Credits:
 
 Dieses Repository wurde mit Stackblitz erstellt
