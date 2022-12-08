@@ -6,17 +6,21 @@ import { Box } from '../boxes';
 import { results } from '../results';
 import { Result } from '../results';
 import { saveAs } from 'file-saver';
+import { HttpService } from '../http.service';
+import { OnInit } from '@angular/core'; // Importing OnInit hook
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   products = products;
   boxes = boxes;
   results: Result[] = [];
   clickedProudctId: number = 0;
+  constructor(private httpService: HttpService) {}
+  weight = 0;
 
   measured_weight: Box = {
     id: 0,
@@ -46,7 +50,7 @@ export class ProductListComponent {
   }
 
   get_measured_weight() {
-    return 1000;
+    return this.weight;
   }
 
   reset_count() {
@@ -62,6 +66,38 @@ export class ProductListComponent {
 
   isClicked(id: number): boolean {
     return id === this.clickedProudctId;
+  }
+  ngOnInit() {
+    this.httpService.tare().subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  callScaleApi() {
+    this.httpService.getPosts().subscribe(
+      (response) => {
+        //this.posts = response;
+        console.log(response);
+        //this.weight = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    /*
+    let headers = new HttpHeaders({});
+    this.http
+      .get<any>('https://random-facts2.p.rapidapi.com/getfact', {
+        headers: headers,
+      })
+      .subscribe((data) => {
+        console.log(data);
+      });*/
   }
 
   saveSelection() {
