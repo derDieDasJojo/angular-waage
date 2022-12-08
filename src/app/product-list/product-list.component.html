@@ -23,6 +23,9 @@
       <b>gemessenes Gewicht </b>
     </div>
     <div class="col-4 text-right">{{ weight }}g</div>
+    <div class="col-2">
+      <a class="btn btn-primary" (click)="callScaleApi()">&#9654;</a>
+    </div>
   </div>
 </div>
 
@@ -88,10 +91,6 @@
   <div class="text-center">
     <a class="btn btn-primary col-5" (click)="downloadFile()">Fertig</a>
   </div>
-</div>
-
-<div class="container-md">
-  <a class="btn btn-primary col-5" (click)="callScaleApi()">test</a>
 </div>
 
 <!-- 
