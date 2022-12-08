@@ -80,8 +80,9 @@ export class ProductListComponent implements OnInit {
 
   callScaleApi() {
     this.httpService.getPosts().subscribe(
-      (data) => this.weight
-      ,
+      (data) => {
+        this.weight = data;
+      },
       (error) => {
         console.log(error);
       }

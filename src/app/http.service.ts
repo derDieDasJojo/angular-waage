@@ -9,7 +9,7 @@ export class HttpService {
   private url = 'http://localhost:5000/scale';
   private url_tare = 'http://localhost:5000/scale/tare';
   getPosts() {
-    return this.http.get(this.url);
+    return this.http.get<number>(this.url);
   }
   tare() {
     return this.http.get(this.url_tare);
